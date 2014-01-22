@@ -6,7 +6,7 @@ Obiettivo 3: creare un branch
 Con il comando ``checkout`` hai imparato a spostarti da un ``commit``
 all'altro
 
-Tutto quello di cui hai bisogno è la chiave del ``commit`` sul quale
+Tutto quello che ti occorre è la chiave del ``commit`` sul quale
 vuoi atterrare >\ **git log --oneline --all**\  >deaddd3 Ecco il commit
 C >2a17c43 Commit B, Il mio secondo commit >56674fb commit A, il mio
 primo commit
@@ -19,12 +19,12 @@ primo commit
     git checkout 2a17c43   # vai al ``commit B``
     git checkout deaddd3   # vai al ``commit C``
 
-Però, bisogna ammetterlo: gestire i ``commit`` ``A``, ``B`` e ``C``
+Bisogna ammetterlo: gestire i ``commit`` ``A``, ``B`` e ``C``
 dovendoli chiamare ``56674fb``, ``2a17c43`` e ``deaddd3`` è di una
 scomodità unica.
 
-git risolve il problema facendo quel che farebbe ogni programmatore di
-buon senso: dal momento che quei numeri sono dei puntatori ad oggetti,
+Ma git risolve il problema facendo ciò che ogni programmatore di
+buon senso farebbe: dal momento che, quei numeri sono dei puntatori ad oggetti,
 git permette di usare delle variabili per conservarne il valore.
 Assegnare un valore ad una variabile è semplice:
 
@@ -79,7 +79,7 @@ Dovrebbe iniziare a risultarti chiaro perché molti dicano che "*i branch
 su git sono molto economici*\ ": per forza! Sono delle semplicissime
 variabili!
 
-Crea un nuovo ``branch`` che useremo nelle prossime pagine
+Creiamo un nuovo ``branch``, lo useremo nelle prossime pagine
 
 .. code-block:: bash
 
@@ -132,7 +132,7 @@ Il fatto è che quando esegui il ``checkout`` di un ``branch``, in
 qualche modo ti *agganci* al ``branch``; l'etichetta del ``branch``, in
 altre parole, inizierà a seguirti, ``commit`` dopo ``commit``.
 
-Guarda: adesso sei su ``dev``. Apporta una modifica qualsiasi e committa
+Guarda: adesso sei su ``dev``. Apportiamo una modifica qualsiasi e committiamo
 
 .. code-block:: bash
 
@@ -151,7 +151,7 @@ Il motivo è che, anche se le linee di sviluppo che divergono in git non
 sono ``branch``, i ``branch`` vengono normalmente usati proprio per dar
 loro un nome.
 
-Guardalo nel concreto. Torna a ``master`` ed apporta qualche modifica.
+Guardiamo nel concreto. Torniamo a ``master`` ed apportiamo qualche modifica.
 
 .. code-block:: bash
 
@@ -162,12 +162,12 @@ Guardalo nel concreto. Torna a ``master`` ed apporta qualche modifica.
 
 .. figure:: img/angular.png
 
-Come c'era da aspettarselo, l'etichetta ``master`` è avanzata di un
-posto, per puntare al tuo nuovo ``commit``.
+C'era da aspettarselo, l'etichetta ``master`` è avanzata di un
+posto, per puntare al nuovo ``commit``.
 
 Adesso c'è una certa equivalenza tra le linee di sviluppo e i
-``branch``. Nonostante questo, ti conviene sempre tenere mentalmente
-separati i due concetti, perché ti faciliterà molto la gestione della
+``branch``. Nonostante tutto, tieni sempre mentalmente
+separati i due concetti, perché ti renderà più facile gestire la
 storia del tuo progetto
 
 Per esempio: non c'è dubbio che il ``commit`` col commento "*angular.js

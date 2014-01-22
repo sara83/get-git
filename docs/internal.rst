@@ -7,23 +7,23 @@ Gli internal
 3 differenze principali
 #######################
 
-Iniziamo con tre caratteristiche di git con le quali dovresti
+Iniziamo con le tre caratteristiche di git con le quali dovresti
 familiarizzare.
 
-1. **Non c'è un server**: il repository è locale. La gran parte delle
-   operazioni è locale e non richiede l'accesso alla rete. Anche per
-   questo troverai git incredibilmente veloce.
+1. **Non c'è un server**: il repository è locale. La maggior parte delle
+   operazioni sono in locale e non richiedo l'accesso alla rete. Anche per
+   questo motivo troverai git incredibilmente veloce.
 2. **Il progetto è indivisibile**: git lavora sempre con l'intero codice
    sorgente del progetto e non su singole directory o su singoli file;
    con git non c'è differenza tra committare nella directory principale
    o in una sotto-directory. Non esiste il concetto di ``checkout`` di
    un singolo file o di una singola directory. Per git il progetto è
    l'unità indivisibile di lavoro.
-3. **git non memorizza i cambiamenti dei file**: git salva sempre i file
+3. **Git non memorizza i cambiamenti dei file**: git salva sempre i file
    nella loro interezza. Se in un file di 2 mega modificassi un singolo
    carattere, git memorizzerebbe per intero la nuova versione del file.
    Questa è una differenza importante: SVN memorizza le differenze e,
-   all'occorrenza, ricostruisce il file; git memorizza il file e,
+   all'occorrenza, ricostruisce il file; al contrario git, memorizza il file e,
    all'occorrenza, ricostruisce le differenze.
 
 4 livelli di operatività *offline*
@@ -31,12 +31,12 @@ familiarizzare.
 
 Sull'assenza di un server ho un po' mentito: come ti ho già detto e come
 vedrai più avanti, git è un sistema *peer-to-peer*, e riesce ad interagire
-con dei server remoti. Nonostante questo, resta sostanzialmente un
+con dei server remoti. Ciò Nonostante, resta sostanzialmente un
 sistema locale.
 
-Per capire quanto questo possa avvantaggiarti, prova a vederla così:
+Per capire quanto questo possa essere vantaggioso, prova a vederla in questo modo:
 quando il codice sorgente di un progetto è ospitato su un computer
-remoto hai 4 modi per editare il codice
+remoto hai 4 modi per editarlo
 
 1. Lasci tutto il codice sul computer remoto e vi **accedi con ssh per
    editare un singolo file**
@@ -49,12 +49,12 @@ remoto hai 4 modi per editare il codice
 4. Ottenieni una **copia locale dell'intero repository** con tutta la
    storia del progetto e lavori in locale
 
-Avrai notato due cose.
+Avrai notato, sicuramente, due cose:
 
-La prima, che SVN e i sistemi di versionamento ai quali sei
-probabilmente abituato operano al livello 3.
+1. SVN e i sistemi di versionamento ai quali, probabilmente, sei 
+abituato operano al livello 3.
 
-La seconda, che i 4 sistemi sono elencati in ordine di comodità: in
+2. I 4 sistemi sono elencati in ordine di comodità: in
 linea di massima, quando il materiale è conservato sul sistema remoto il
 tuo lavoro è più macchinoso, lento e scomodo. SVN ti permette di fare il
 checkout di un'intera directory proprio perché così ti risulti più
@@ -73,8 +73,8 @@ progetto di quanto SVN lo sia ad ottenere un singolo checkout.
 Il modello di storage
 =====================
 
-Passiamo alla terza differenza. E preparati a conoscere il vero motivo
-per cui git sta sostituendo molto velocemente SVN come nuovo standard
+Passiamo alla terza differenza e preparati a conoscere il vero motivo
+per il quale git sta sostituendo velocemente SVN, come nuovo standard
 *de-facto*.
 
 -  SVN memorizza la collezione dei vari delta applicati nel
@@ -85,9 +85,9 @@ per cui git sta sostituendo molto velocemente SVN come nuovo standard
 Se vuoi evitare tanti grattacapi con git, il miglior suggerimento che tu
 possa seguire è di trattarlo come un **database chiave/valore**.
 
-Passa al terminal e guarda nel concreto.
+Passiamo al terminal e guardiamo.
 
-Mettiti nella condizione di avere 2 file vuoti sul file system:
+Mettiamoci nella condizione di avere 2 file vuoti sul file system:
 
 .. code-block:: bash
 
@@ -113,7 +113,7 @@ Decidiamo di gestire il progetto con git
 
     git init
 
-Aggiungi il primo file a git
+Aggiungiamo il primo file a git
 
 .. code-block:: bash
 
@@ -121,11 +121,11 @@ Aggiungi il primo file a git
 
 Con questo comando, git ispeziona il contenuto del file (è vuoto!) e lo
 memorizza nel suo database chiave/valore, chiamato ``Object Database`` e
-conservato su file system nella directory nascosta ``.git``.
+conservato sul file system nella directory nascosta ``.git``.
 
 Siccome il ``blob-storage`` è un database chiave/valore, git cercherà di
 calcolare una chiave ed un valore per il file che hai aggiunto. Per il
-valore git userà il contenuto stesso del file; per la chiave, calcolerà
+valore, git utilizzerà il contenuto stesso del file; per la chiave, invece, calcolerà
 lo SHA1 del contenuto (se sei curioso, nel caso di un file vuoto vale
 ``e69de29bb2d1d6434b8b29ae775ad8c2e48c5391``)
 
@@ -135,7 +135,7 @@ ambiguità, vale la pena di abbreviare)
 
 .. figure:: img/blob.png
    
-Adesso aggiungi il secondo file
+Adesso aggiungiamo il secondo file
 
 .. code-block:: bash
 
@@ -151,9 +151,9 @@ verranno conservati in un unico oggetto:
 Come vedi, nell'``Object Database`` git ha memorizzato solo il contenuto del
 file, non il suo nome né la sua posizione.
 
-Naturalmente, però, a noi il nome dei file e la loro posizione
-interessano eccome. Per questo, nell'``Object Database``, git memorizza
-anche altri oggetti, chiamati ``tree`` che servono proprio a memorizzare
+Naturalmente, il nome dei file e la loro posizione ci
+interessano molto. Per questo, nell'``Object Database``, git memorizza
+anche altri oggetti, chiamati ``tree`` che servono proprio a registrare(o memorizzare)
 il contenuto delle varie directory e i nomi dei file.
 
 Nel nostro caso, avremo 3 ``tree``
@@ -175,22 +175,22 @@ database chiave/valore, la cui chiave è uno SHA1, come per tutti gli
 altri oggetti, e il cui valore è un puntatore al ``tree`` del progetto,
 cioè la sua chiave (più un altro po' di informazioni, come la data di
 creazione, il commento e l'autore). Non è troppo complicato, dopo tutto,
-no?
+vero?
 
 Quindi, il ``commit`` è l'attuale fotografia del file system.
 
-Adesso fai
+Adesso facciamo
 
 .. code-block:: bash
 
     git commit -m "commit A, il mio primo commit"
 
-Stai dicendo a git:
+Con ciò stiamo dicendo a git:
 
 *memorizza nel repository, cioè nella storia del progetto, il commit che
 ti ho preparato a colpi di add*
 
-Il tuo ``repository``, visto da SmartGit, adesso ha questo aspetto
+Il ``repository`` adesso, visto da SmartGit, dovrebbe avere questo aspetto
 
 .. figure:: img/first-commit.png
 
@@ -213,10 +213,10 @@ fatto, un ``commit`` sia l'unità minima ed indivisibile di lavoro.
 L' ``index`` o ``staging area``
 ===============================
 
-Sostanzialmente, non c'è molto altro che tu debba sapere del modello di
-storage di git. Ma prima di passare a vedere i vari comandi, vorrei
-introdurti ad un altro meccanismo interno: la ``staging area`` o
-``index``. L'\ ``index`` risulta sempre misterioso a chi arriva da SVN:
+Sostanzialmente, non c'è molto altro da sapere sul modello di
+storage di git. Ma prima di vedere i vari comandi, vorrei
+introdurre un altro meccanismo interno: la ``staging area`` o
+``index``. Per chi arriva da SVN l'\ ``index`` risulta sempre misterioso:
 vale la pena parlarne perché, quando saprai come funzionano l'``Object Database`` 
 e l'\ ``index``, git non ti sembrerà più contorto e
 incomprensibile; piuttosto, ne coglierai la coerenza e lo troverai
@@ -234,7 +234,7 @@ Non è troppo complicato:
 -  il ``file system`` è la directory con i tuoi file.
 -  il ``repository`` è il database locale su file che conserva i vari
    ``commit``
--  l'\ ``index`` è lo spazio che git ti mette a disposizione per creare
+-  l'\ ``index`` è lo spazio che git mette a disposizione perchè tu possa creare
    il tuo prossimo ``commit`` prima di registrarlo definitivamente nel
    ``repository``
 
@@ -248,7 +248,7 @@ che tu lo modifichi.
 
 .. figure:: img/index2.png
 
-Sul file system hai
+Sul file system avremo
 
 ::
 
@@ -259,34 +259,34 @@ Sul file system hai
     ├──templates
             └──bar.txt
 
-Proviamo a fare delle modifiche al file ``foo.txt``
+Proviamo ora a fare delle modifiche al file ``foo.txt``
 
 .. code-block:: bash
 
     echo "nel mezzo del cammin" >> libs/foo.txt
 
-e aggiorna l'\ ``index`` con
+e aggiorniamo l'\ ``index`` con
 
 .. code-block:: bash
 
     git add libs/foo.txt
 
 All'esecuzione di ``git add`` git ripete quel che aveva già fatto prima:
-analizza il contenuto di ``libs/foo.txt``, vede che c'è un contenuto che
-non ha mai registrato e quindi aggiunge all'``Object Database`` un nuovo
-``blob`` col nuovo contenuto del file; contestualmente, aggiorna il
-``tree`` ``libs`` perché il puntatore chiamato ``foo.txt`` indirizzi il
+analizza il contenuto di ``libs/foo.txt``, se è presente un contenuto mai registrato prima
+ lo aggiunge all'``Object Database`` un nuovo
+``blob`` con il nuovo contenuto del file; contestualmente, aggiorna il
+``tree`` ``libs`` perché il puntatore chiamato ``foo.txt`` indirizzi al
 suo nuovo contenuto
 
 .. figure:: img/index3.png
 
-Prosegui aggiungendo un nuovo file ``doh.html`` alla root del progetto
+Proseguiamo aggiungendo un nuovo file ``doh.html`` alla root del progetto
 
 .. code-block:: bash
 
     echo "happy happy joy joy" > doh.html git add doh.html
 
-Come prima: git aggiunge un nuovo ``blob`` object col contenuto del file
+Di nuovo: git aggiunge un nuovo ``blob`` object con il contenuto del file
 e, contestualmente, aggiunge nel ``tree`` "/" un nuovo puntatore
 chiamato ``doh.html`` che punta al nuovo ``blob`` object
 
@@ -329,18 +329,18 @@ Con l'operazione di commit si dice a git "*Ok, prendi l'attuale
 ``index`` e fallo diventare il tuo nuovo ``commit``. Poi restituiscimi
 l'\ ``index`` così che possa fare una nuova modifica*\ "
 
-Dopo il ``commit`` nel database di git avrai
+Dopo il ``commit`` nel database di git avremo
 
 .. figure:: img/index-and-second-commit.png
 
 Una breve osservazione: spesso le interfacce grafiche di git omettono di
-visualizzare l'\ ``index``. ``gitk``, per esempio, la visualizza solo se
+visualizzare l'\ ``index``. ``gitk``, per esempio, lo visualizza solo se
 ci sono modifiche da committare. Il tuo repository in ``gitk`` adesso
-viene visualizzato così
+verrà visualizzato così
 
 .. figure:: img/gitk.png
 
-Guarda tu stesso. Lancia
+Lancia e guarda tu stesso 
 
 .. code-block:: bash
 
@@ -349,9 +349,9 @@ Guarda tu stesso. Lancia
 Ricapitolando:
 
 1. git memorizza sempre i file nella loro interezza
-2. il ``commit`` è uno dei tanti oggetti conservati dentro il database
-   chiave/valore di git. È un contenitore di tanti puntatori ad altri
-   oggetti del database: i ``tree``, che rappresentano directory, 
+2. il ``commit`` è uno dei tanti oggetti conservati all'interno del database
+   chiave/valore di git, è un contenitore di tanti puntatori ad altri
+   oggetti del database: i ``tree``, che rappresentano le directory, 
    che a loro volta puntano ad altri ``tree`` (sotto-directory) o
    a dei ``blob`` (il contenuto dei file)
 3. ogni oggetto ``commit`` ha un puntatore al ``commit`` padre da cui
@@ -371,6 +371,6 @@ Bene: adesso hai tutta la teoria per capire i concetti più astrusi di
 git come il ``rebase``, il ``cherrypick``, l'\ ``octopus-merge``,
 l'\ ``interactive rebase``, il ``revert`` e il ``reset``.
 
-Passiamo al pratico.
+Passiamo alle cose pratiche.
 
 :ref:`Indice <indice>` ::  :ref:`I comandi di git <comandi>`

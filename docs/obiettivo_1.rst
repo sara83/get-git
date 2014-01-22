@@ -17,8 +17,8 @@ Il comando ``checkout`` prende il ``commit`` indicato e lo copia nel
 
 .. figure:: img/index-add-commit-checkout.png
 
-Già: ma qual è la chiave del ``commit A``? Lo puoi scoprire con un
-client grafico o col comando ``git log`` che mostra un elenco di tutti
+Già: ma qual è la chiave del ``commit A``? Possiamo scoprirlo attraverso un
+client grafico o con il comando ``git log`` che mostra un elenco di tutti
 i ``commit`` memorizzati nel ``repository``
 
 .. code-block:: bash
@@ -27,11 +27,11 @@ i ``commit`` memorizzati nel ``repository``
     2a17c43 Commit B, Il mio secondo commit
     56674fb commit A, il mio primo commit
 
-Attenzione! Siccome nel ``commit`` vengono memorizzati anche la data e
+Attenzione! Dato che nel ``commit`` vengono memorizzati anche la data e
 l'autore, le tue chiavi risulteranno diverse dalle mie.
 
-Sul mio ``repository`` la chiave del ``commit A`` è ``56674fb``. Bene:
-torniamo indietro al passato, al momento del ``commit`` ``A``
+All'interno del mio ``repository`` la chiave del ``commit A`` è ``56674fb``. Bene:
+torniamo indietro nel passato, al momento del ``commit`` ``A``
 
 .. code-block:: bash
 
@@ -44,8 +44,8 @@ torniamo indietro al passato, al momento del ``commit`` ``A``
     libs    templates
 
 Effettivamente, a parte un misterioso e prolisso messaggio di con cui
-git si lamenta di essere in ``'detached HEAD' state`` (poi chiariremo
+git si lamenta di essere in ``'detached HEAD' state`` (chiariremo poi 
 questo punto), il file system è tornato allo stato del primo commit e,
-infatti, il file ``doh.html`` è scomparso.
+in effetti, il file ``doh.html`` è scomparso.
 
 :ref:`Indice <indice>` :: :ref:`Obiettivo 2: divergere <obiettivo_2>`

@@ -30,10 +30,10 @@ strumenti che utilizzerai più spesso è ``merge``
 ``merge`` funziona proprio come te lo aspetti: fonde tra loro due
 ``commit``.
 
-Ci sono solo 3 particolarità sulle quali credo valga la pena di
+Ci sono solo 3 particolarità sulle quali credo valga la pena
 soffermarsi. La prima è che il ``merge`` di git funziona spaventosamente
-bene. Merito del modello di storage di git: durante i merge git non deve
-stare ad impazzire, come SVN, per capire se un delta sia già stata
+bene. Merito del modello di storage di git: durante i merge git non deve cercare, come SVN, di capire 
+se un delta sia già stato
 applicato o no, perché parte dal confronto di fotografie del progetto.
 Ma non entriamo nel dettaglio: goditi la potenza di ``git merge`` e
 dimentica tutte le difficoltà che hai sempre incontrato con SVN.
@@ -46,11 +46,11 @@ Ma preferisco mostrarteli subito con degli esempi
 Il ``merge``
 ============
 
-L'ultima fotografia del tuo ``repository`` è
+L'ultima fotografia del tuo ``repository`` è questa
 
 .. figure:: img/rebase-6.png
 
-Stacca un ramo da ``dev`` e aggiungi un paio di ``commit``
+Stacchiamo un ramo da ``dev`` e aggiungiamo un paio di ``commit``
 
 .. code-block:: bash
 
@@ -81,7 +81,7 @@ Supponi, per esempio, che sia tu, una volta completato il tuo lavoro di
 bugfixing sull'apposito ramo, a chiedere ai tuoi colleghi di integrare
 il tuo lavoro nel loro.
 
-Per integrare il ``bugfix`` in ``sviluppo`` i tuoi colleghi potrebbe
+Per integrare il ``bugfix`` in ``sviluppo`` i tuoi colleghi potrebbero
 fare
 
 .. code-block:: bash
@@ -91,13 +91,13 @@ fare
 
 .. figure:: img/merge-2.png
 
-Con ``git merge bugfix`` hai chiesto a git: "*procurami un ``commit``
+Con ``git merge bugfix`` si chiea git: "*procurami un ``commit``
 che contenga tutto quello che c'è nel mio ``branch`` corrente e
 aggiungici tutte le modifiche introdotte dal ramo ``bugfix``*\ ".
 
 Prima di eseguire il merge, git guarda nel suo ``Object Database`` e cerca
 se per caso esista già un ``commit`` contenente entrambi i rami. Dal
-momento che non lo trova, git lo crea, fonde i due file system e poi
+momento che non lo trova, lo crea, fonde i due file system e poi
 assegna come genitori del nuovo ``commit`` entrambi i ``commit`` di
 provenienza. In effetti, il risultato è un nuovo ``commit`` che ha due
 genitori. Nota anche che l'etichetta del tuo ramo, ``sviluppo`` si è
@@ -107,7 +107,7 @@ spostata sul nuovo ``commit``. Non dovrebbe essere una sopresa: il
 Il ``fast-forward merge``
 -------------------------
 
-Se ti torna questo ragionamento, non avrai difficoltà a capire il
+Se questo ragionamento ti è chiaro, non avrai difficoltà a capire il
 ``fast-forward``. Mettiti alla prova; prova a rispondere a questa
 domanda:
 
