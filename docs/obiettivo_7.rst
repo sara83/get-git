@@ -23,7 +23,7 @@ A complicare le cose c'è il fatto che, a quanto pare, non si dovrebbe
 permettere ad altri di accedere al proprio ``repository``. Decisamente
 la faccenda si fa confusa e nebulosa.
 
-Cerchiamo di mettere chiarezza. Partiamo da un assunto: git è abbastanza
+Cerchiamo di far chiarezza. Partiamo da un assunto: git è abbastanza
 versatile da replicare totalmente l'organizzazione a ``repository``
 centrale di SVN. Per cui, se proprio per te fosse uno shock culturale
 insostenibile anche solo pensare di organizzare il tuo workflow in altro
@@ -32,16 +32,16 @@ uniresti ad un lungo elenco di aziende e di team che, di fronte alle
 possibilità offerte da git, rimediano rifugiandosi nell'arcinota
 architettura a ``repository`` centrale. 
 
-È una opzione. Non è delle più felici, perché impedisce di godere di alcuni dei grandi
-vantaggi dell'usare un sistema di versionamento distribuito, ma è sempre
-un'opzione percorribile Un mio collega la descrive come "*avere
+Questa è una opzione. Non è delle più felici, perché impedisce di godere di alcuni dei grandi
+vantaggi che si hanno nell'usare un sistema di versionamento distribuito, ma è sempre
+un'opzione percorribile. Un mio collega la descrive come "*avere
 finalmente il fucile ed usarlo come una clava*\ ". Diciamo pure che non
-è l'opzione che verrà promossa da questa guida.
+è l'opzione promossa in questa guida.
 
 In questo capitoletto proveremo piuttosto ad esplorare altre
 implementazioni meno banali.
 
-Partiamo da un'euristica che io ho sempre trovo molto efficace:
+Partiamo da un'euristica che ho sempre trovato molto efficace:
 
     utilizza una topologia di ``repository`` che rispecchi il reale
     flusso di lavoro e i reali ruoli funzionali esistenti nel team
@@ -51,9 +51,9 @@ collega state usando git principalmente per 3 funzioni
 
 -  tu, per sviluppare il codice
 -  il tuo collega, per sviluppare il codice
--  entrambi, per scambiarvi il codice ed integrare il lavoro di entrambi
+-  entrambi, per scambiarvi il codice ed integrare insieme il vostro lavoro
 
-L'idea è: per ogni funzione, usa un ``repository`` dedicato. In altre
+L'idea è questa: per ogni funzione, usa un ``repository`` dedicato. In altre
 parole, potreste prendere in considerazione l'ipotesi di aggiungere un
 ``repository``, raggiungibile sia da te che dal tuo collega, da
 utilizzare come area di integrazione
@@ -64,8 +64,8 @@ Ora: verrebbe già più spontaneo eleggere il ``repository``
 ``integrazione`` come il ``repository`` ufficiale, non trovi?
 
 A rigore, non c'è fisicamente niente che caratterizzi il repository
-``integrazione`` come\ ``repository`` centrale: tecnicamente è del tutto
-equivalente agli altri due. L'idea di fondo che è che il ruolo e
+``integrazione`` come \ ``repository`` centrale: tecnicamente è del tutto
+equivalente agli altri due. L'idea di fondo è, che il ruolo e
 l'importanza di un ``repository`` rispetto ad un altro sia una questione
 sociale e organizzativa, non imposta da vincoli o limiti tecnologici:
 git si limita a permettere di modellarla, ma non impone la minima
@@ -73,8 +73,8 @@ opinione in materia.
 
 Quindi, supponiamo che, per convenzione o per accordo tra le parti si
 decida che il repository ``integrazione`` venga usato per permettere
-l'integrazione tra il lavoro tuo e quello del tuo collega e come
-archivio *ufficiale*; gli altri due ``repository`` saranno da intendersi
+l'integrazione tra il tuo lavoro e quello del tuo collega e come
+archivio *ufficiale*; gli altri due ``repository``, saranno da intendersi
 come archivi ad uso esclusivo di ogni sviluppatore.
 
 Puoi rinforzare questa struttura utilizzando un paio di strumenti che
@@ -87,8 +87,8 @@ creato solo il database, senza il ``file system``, per cui non sarà
 possibile fare ``add`` e ``checkout``
 
 Invece, sui due ``repository`` personali, potresti configurare ad arte i
-permessi di accesso, restringendoliai soli proprietari; tu sarai il solo
-a poter leggere e scrivere sul tuo ``repository`` personale, e non avrai
+permessi di accesso, restringendoli ai soli proprietari; tu sarai il solo
+a poter leggere e scrivere sul tuo ``repository`` personale e non avrai
 modo di accedere a quello del tuo collega; e vice versa. Vi perdete la
 possibilità di spedirvi ``branch`` senza passare dal ``repository``
 centrale, ma a breve vedremo delle configurazioni più articolate.
@@ -99,18 +99,18 @@ Ecco qui: hai una topologia molto simile alla soluzione centralizzata di
 SVN, con la sola differenza che ogni sviluppatore dispone di un
 ``repository`` privato locale.
 
-Possiamo fare di più? Certo che sì. Se ne vale la pena. Nello specifico:
+Possiamo fare di più? Certo, se ne vale la pena. Nello specifico:
 se l'intero team di sviluppo è costituito da te e dal tuo collega,
 questa soluzione potrebbe già essere perfetta.
 
 Ma le cose potrebbero essere molto differenti: considera per esempio il
-caso in cui il tuo collega sia un consulente esterno, al quale non vuoi
-dare direttamente la possibilità di modificare direttamente il codice
+caso in cui, il tuo collega sia un consulente esterno, al quale non vuoi
+dare la possibilità di modificare direttamente il codice
 nel ``repository`` ufficiale se non dopo una tua revisione ed
 accettazione del codice.
 
 Una possibilità potrebbe essere quella di decidere che sia il *tuo*
-``repository`` quello ufficial, così da organizzare i tool di Continuous
+``repository`` quello ufficiale, così da organizzare i tool di Continuous
 Integration e di Deployment perché prelevino il codice da lì. Oppure,
 potresti ripensare all'euristica
 
@@ -118,16 +118,16 @@ potresti ripensare all'euristica
     flusso di lavoro e i reali ruoli funzionali esistenti nel team
 
 e decidere di aggiungere un nuovo ``repositorty`` con il ruolo di
-*archivio ufficiale* del codice pronto ad andare in produzione e
+*archivio ufficiale* del codice, pronto ad andare in produzione e
 restringere l'accesso in scrittura solo a te
 
 .. figure:: img/workflow-5.png
 
-Inizi ad intuire che questa storia dei ``repository`` offra una gamma
+Inizi ad intuire, che questa storia dei ``repository`` offra una gamma
 pressocché illimitata di possibilità?
 
 Guarda: voglio mostrarti una configurazione topologica che è molto
-diffusa e che sicuramente incontrerai, specialmente dovessi partecipare
+diffusa e che sicuramente incontrerai, specialmente se dovessi partecipare
 a qualche progetto *open source* su GitHub.
 
 Considera di nuovo l'ultima illustrazione. Il tuo ``repository`` e
@@ -139,7 +139,7 @@ disegnato lo schema
 .. figure:: img/workflow-2.png
 
 ero stato molto superficiale e frettoloso, perché avevo del tutto
-sorvolato sul problema, tutt'altro che banale, di come far comunicare i
+sorvolato il problema, tutt'altro che banale, di come far comunicare i
 due ``repository``, ospitati probabilmente su due *laptop*, senza IP
 fisso o dominio: una condivisione di cartelle con Samba? Un server ssh
 installato su entrambi i *laptop*? Dropbox?
@@ -199,22 +199,22 @@ la convenzione sociale a stabilire a quale uso destinare ogni
 
 Si potrebbe immaginare la topologia dei ``repository`` come un sistema
 di vasche comunicanti; in ogni vasca si può far fluire selettivamente il
-codice da una o più altre vasche comunicante; ad ogni persona che
-ricopra un determinato ruolo nel flusso di lavoro viene dato il
+codice da una o più altre vasche comunicanti; ad ogni persona che
+ricopra un determinato ruolo nel flusso di lavoro, viene dato il
 controllo esclusivo della chiusa che apre o chiude il flusso di codice
-nella propri vasca.
+nella propria vasca.
 
 In linea generale: tutti i tipi di workflow che prima con SVN si era
 costretti ad implementare usando convenzioni sui nomi e sugli usi dei
-branch, in git sono molto facilmente modellabili con topologie di
-``repository``. È un vero peccato quando un team che abbia adottato git
+branch, in git sono facilmente modellabili con topologie di
+``repository``. È un vero peccato, quando un team che abbia adottato git
 cerchi di riprodurre un controllo del workflow con gli stessi sistemi di
-SVN, perché farà un grande sforzo per otteere molto meno di quel che git
+SVN, perché farà un grande sforzo per ottenere molto meno di quel che git
 potrebbe fornire.
 
 Ti accorgerai, invece, di come convenga quasi sempre modellare la rete
 di ``repository`` in modo che rifletta il workflow e l'organizazione
-gerarchica del tuo team. Per esempio, non è raro che in grande
+gerarchica del tuo team. Per esempio, non è raro che in grandi
 organizzazioni il flusso di lavoro sia abbastanza articolato da
 richiedere più team, con una distribuzione gerarchica dei ruoli e delle
 responsabilità: potrebbe esserci un responsabile del progetto a cui
@@ -229,7 +229,7 @@ Workflow*\ "
 Nota che quando i diagrammi delle topologie sono particolarmente
 articolati, si rappresentano solo i ``repository`` pubblici, dando per
 scontato che ogni persona adibita al controllo di quel ``repository``
-pubblico (cioè, fornita dei diritti di ``push``) avrà un ``repository``
-privato sulal propria macchina locale.
+pubblico (cioè, fornita dei diritti di ``push``), avrà un ``repository``
+privato sulla propria macchina locale.
 
 :ref:`Indice <indice>` :: :ref:`Daily git <dailygit>`

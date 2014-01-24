@@ -11,7 +11,7 @@ Iniziamo con le tre caratteristiche di git con le quali dovresti
 familiarizzare.
 
 1. **Non c'è un server**: il repository è locale. La maggior parte delle
-   operazioni sono in locale e non richiedo l'accesso alla rete. Anche per
+   operazioni sono in locale e non richiedono l'accesso alla rete. Anche per
    questo motivo troverai git incredibilmente veloce.
 2. **Il progetto è indivisibile**: git lavora sempre con l'intero codice
    sorgente del progetto e non su singole directory o su singoli file;
@@ -31,7 +31,7 @@ familiarizzare.
 
 Sull'assenza di un server ho un po' mentito: come ti ho già detto e come
 vedrai più avanti, git è un sistema *peer-to-peer*, e riesce ad interagire
-con dei server remoti. Ciò Nonostante, resta sostanzialmente un
+con dei server remoti. Ciò nonostante, resta sostanzialmente un
 sistema locale.
 
 Per capire quanto questo possa essere vantaggioso, prova a vederla in questo modo:
@@ -85,9 +85,9 @@ per il quale git sta sostituendo velocemente SVN, come nuovo standard
 Se vuoi evitare tanti grattacapi con git, il miglior suggerimento che tu
 possa seguire è di trattarlo come un **database chiave/valore**.
 
-Passiamo al terminal e guardiamo.
+Passa al terminal e guarda.
 
-Mettiamoci nella condizione di avere 2 file vuoti sul file system:
+Mettiti nella condizione di avere 2 file vuoti sul file system:
 
 .. code-block:: bash
 
@@ -107,13 +107,13 @@ Mettiamoci nella condizione di avere 2 file vuoti sul file system:
     ├──templates
             └──bar.txt
 
-Decidiamo di gestire il progetto con git
+Decidi di gestire il progetto con git
 
 .. code-block:: bash
 
     git init
 
-Aggiungiamo il primo file a git
+Aggiungi il primo file a git
 
 .. code-block:: bash
 
@@ -135,7 +135,7 @@ ambiguità, vale la pena di abbreviare)
 
 .. figure:: img/blob.png
    
-Adesso aggiungiamo il secondo file
+Adesso aggiungi il secondo file
 
 .. code-block:: bash
 
@@ -153,7 +153,7 @@ file, non il suo nome né la sua posizione.
 
 Naturalmente, il nome dei file e la loro posizione ci
 interessano molto. Per questo, nell'``Object Database``, git memorizza
-anche altri oggetti, chiamati ``tree`` che servono proprio a registrare(o memorizzare)
+anche altri oggetti, chiamati ``tree`` che servono proprio a memorizzare
 il contenuto delle varie directory e i nomi dei file.
 
 Nel nostro caso, avremo 3 ``tree``
@@ -179,13 +179,13 @@ vero?
 
 Quindi, il ``commit`` è l'attuale fotografia del file system.
 
-Adesso facciamo
+Adesso fai
 
 .. code-block:: bash
 
     git commit -m "commit A, il mio primo commit"
 
-Con ciò stiamo dicendo a git:
+Con questo stai dicendo a git:
 
 *memorizza nel repository, cioè nella storia del progetto, il commit che
 ti ho preparato a colpi di add*
@@ -248,7 +248,7 @@ che tu lo modifichi.
 
 .. figure:: img/index2.png
 
-Sul file system avremo
+Sul file system avrai
 
 ::
 
@@ -259,13 +259,13 @@ Sul file system avremo
     ├──templates
             └──bar.txt
 
-Proviamo ora a fare delle modifiche al file ``foo.txt``
+Prova ora a fare delle modifiche al file ``foo.txt``
 
 .. code-block:: bash
 
     echo "nel mezzo del cammin" >> libs/foo.txt
 
-e aggiorniamo l'\ ``index`` con
+e aggiorna l'\ ``index`` con
 
 .. code-block:: bash
 
@@ -280,7 +280,7 @@ suo nuovo contenuto
 
 .. figure:: img/index3.png
 
-Proseguiamo aggiungendo un nuovo file ``doh.html`` alla root del progetto
+Prosegui aggiungendo un nuovo file ``doh.html`` alla root del progetto
 
 .. code-block:: bash
 
@@ -329,7 +329,7 @@ Con l'operazione di commit si dice a git "*Ok, prendi l'attuale
 ``index`` e fallo diventare il tuo nuovo ``commit``. Poi restituiscimi
 l'\ ``index`` così che possa fare una nuova modifica*\ "
 
-Dopo il ``commit`` nel database di git avremo
+Dopo il ``commit`` nel database di git avrai
 
 .. figure:: img/index-and-second-commit.png
 

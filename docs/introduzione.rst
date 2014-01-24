@@ -8,7 +8,7 @@ Introduzione
 
 Questa è una guida un po' diversa dalle altre.
 
-Leggendo molti testi su git ho notato che si in essi ci si preoccupa molto 
+Leggendo molti testi su git ho notato che in essi ci si preoccupa molto 
 di introdurre, chi legge, ai
 comandi base e lasciano ai capitoli più avanzati la descrizione del
 modello di funzionamento interno, a volte saltandola del tutto.
@@ -19,7 +19,7 @@ SVN, provvisto però di un set aggiuntivo di comandi esoterici, il cui
 funzionamento ti resterà sostanzialmente oscuro.
 
 Nota bene: tra coloro che hanno imparato git abbastanza da
-riuscire ad utilizzarlo quotidianamente, alcuni di loro, ti racconteranno di aver fatto molta
+riuscire ad utilizzarlo quotidianamente, ci sono alcuni che ti racconteranno di aver fatto molta
 fatica a capire cosa sia un ``rebase`` o di non cogliere esattamente che
 uso fare dell'\ ``index``.
 

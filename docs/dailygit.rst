@@ -4,14 +4,14 @@
 Daily git
 #########
 
-Questa guida si chiude con una breve serie di piccoli suggerimenti
-pratici che ti risulteranno molto utili nel tuo uso quotidiano di git
+Questa guida si chiude, con una serie di piccoli suggerimenti
+pratici che ti saranno utili nell' uso quotidiano di git.
 
 Ottenere una copia di un ``repository``
 #######################################
 
 Fin'ora hai visto come creare un ``repository`` da zero e come fare a
-popolarne uno vuoto a colpi di ``push``. Spesso (anzi, spessissimo) ti
+popolarne uno vuoto a colpi di ``push``. Spesso (anzi, spessissimo), ti
 capiterà di dover partire da una copia di un ``repository`` esistente.
 
 Allo scopo, puoi usare il comando ``git clone`` col quale otterrai in
@@ -34,7 +34,7 @@ Eliminare un file
 
 Rammenti che per aggiungere un file nell'\ ``index`` hai usato il
 comando ``git add``? Ecco: quando cancelli dal ``file system`` un file
-già tracciato da git, perché includere la cancellazione nel ``commit``
+già tracciato da git, perché includa la cancellazione nel ``commit``
 devi cancellare il file anche dall'\ ``index`` con
 
 
@@ -87,7 +87,7 @@ Quindi: ``HEAD`` punta a ``bob``. A sua volta ``bob`` punta al
     dd15c2bee7059de07c4d74cf5f264b906d332e30
 
 Prova a *staccarti* dal ``branch`` ``bob``, restando sempre sul medesimo
-``commit``; cioè, fai un ``checkout`` usando direttaente la chiave del
+``commit``; cioè, fai un ``checkout`` usando direttamente la chiave del
 ``commit`` ``A``
 
 .. code-block:: bash
@@ -125,13 +125,13 @@ scopri che, effetticamente, ``HEAD`` sta puntando direttamente al
 Lo stato in cui ``HEAD`` non punta ad un ``branch`` viene chiamato
 ``detached head``.
 
-Ora, non c'è niente di particolarmente sbagliato nello staccarsi da un
-``branch`` e mettersi in ``detached head state``: capita di avere
+Ora, non c'è nulla di particolarmente sbagliato nello staccarsi da un
+``branch`` e mettersi in ``detached head state``: capita di averne
 bisogno. Ma spesso procura qualche grattacapo, soprattutto se non ci si
-accorge di esservi entrati. Per questo git mette in guardia.
+accorge di esservi entrati. Per questo git ti mette in guardia.
 
 Dovesse capitarti di leggere quell'avviso chilometrico, non spaventarti:
-tutto quel che probabilmente dovrai fare è domandarti se forse non
+tutto quel che, probabilmente, dovrai fare è domandarti se forse non
 volessi piuttosto entrare in un ``branch``.
 
 Sovrascrivere l'ultimo ``commit``
@@ -141,7 +141,7 @@ Prendi il ``repository``
 
 .. figure:: img/bug-5.png
 
-e aggiungici un ``commit``
+e aggiungi un ``commit`` al suo interno
 
 .. code-block:: bash
 
@@ -152,7 +152,7 @@ e aggiungici un ``commit``
 
 Ma no, che figure! Hai scritto "ho" senza l'acca!
 
-Puoi rimediare *sovrascrivendo* il tuo ultimo ``commit`` con l'ozione
+Puoi rimediare *sovrascrivendo* il tuo ultimo ``commit`` con l'opzione
 ``--amend`` di ``commit``
 
 .. code-block:: bash
@@ -187,7 +187,7 @@ Torna indietro di un ``commit``
 
 .. figure:: img/amend-4.png
 
-Recuperano le modifiche apportate in ``feature``, senza committarle
+Recupera le modifiche apportate in ``feature``, senza committarle
 
 .. code-block:: bash
 
@@ -216,9 +216,9 @@ E infine, fai il ``checkout`` del ``branch``
 .. figure:: img/amend-7.png
 
 Come vedi, l'opzione ``--amend`` è un altro di quegli esempi di *macro*
-comandi che si poggiano su operazioni più granulari che potresti anche
+comandi che si poggiano su operazioni più granulari, che potresti anche
 eseguire passo passo manualmente ma che sono così comuni che è molto più
-comodo associare ad un comando dedicato.
+comodo associarle ad un comando dedicato.
 
 Puoi usare ``--amend`` non solo per modificare il commento: puoi
 sovrascrivere il tuo ultimo commit aggiungendo file che ti eri
@@ -234,8 +234,8 @@ precedente paragrafo
 
 .. figure:: img/amend-7.png
 
-Immagina che tu abbia valutato che, dopo tutto, il tuo ultimo ``commit``
-non vada bene: vorresti eliminarlo.
+Immagina che, dopo tutto, il tuo ultimo ``commit``
+non vada bene e vorresti eliminarlo.
 
 Una cosa che potresti fare è spostare il ``branch`` ``feature`` al
 ``commit`` precedente per ottenere
@@ -259,7 +259,7 @@ che significa "*vai sul ``commit`` padre di ``HEAD``*\ ", cioè sul
 
 .. figure:: img/reset-1.png
 
-Adesso puoi spostare ``feature`` nel punto ti trovi: per farlo, puoi
+Adesso puoi spostare ``feature`` nel punto in cui ti trovi: per farlo, puoi
 creare un branch ``feature`` nel punto dove ti trovi, sovrascrivendo la
 posizione attuale di ``feature`` con l'opzione ``-f`` di ``branch``
 
@@ -290,7 +290,7 @@ Per esempio partendo da
 .. figure:: img/amend-7.png
 
 puoi *resettare* il tuo ``branch`` corrente al ``commit`` precedente
-puoi fare
+facendo
 
 .. code-block:: bash
 

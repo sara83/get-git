@@ -71,7 +71,7 @@ Il nome è necessario perché, a differenza di SVN che ha il concetto di
 di ``repository`` remoti contemporaneamente, per cui ad ognuno
 assegnerai un nome identificativo univoco.
 
-Sono due le cose che fondamentalmente puoi fare con un ``remote``:
+Sono due le cose che, fondamentalmente, puoi fare con un ``remote``:
 allinearsi al suo contenuto o chiedere che sia lui ad allinearsi a te.
 
 Hai a disposizione due comandi: ``push`` e ``fetch``.
@@ -80,7 +80,7 @@ Con ``push`` puoi *spedire* un set di ``commit`` al ``repository``
 remoto. Con ``fetch`` puoi *riceverli* dal ``repository`` remoto
 
 Sia ``push`` che ``fetch``, in realtà, permettono al tuo ``repository``
-e al ``remote`` di scambiarsi delle etichette. E, in realtà, hai a
+e al ``remote`` di scambiarsi delle etichette e, in realtà, hai a
 disposizione anche altri comandi. Ma andiamo per gradi: iniziamo a
 vedere in concreto come funzioni la comunicazione tra un ``repository``
 ed un ``remote``.
@@ -154,13 +154,12 @@ contiene solo il ``branch`` che gli hai spedito.
 Puoi verificare che i 4 ``commit`` siano davvero tutti e soli i
 ``commit`` che avevi in locale sul ramo ``experiment``.
 
-Anche sul tuo ``repository`` locale è successo qualcosa. Prova a
-visualizzarlo
+Anche sul tuo ``repository`` locale è successo qualcosa. Visualizzalo
 
 .. figure:: img/push-1.png
 
 Guarda guarda! Sembra sia stato aggiunto un nuovo ``branch``, chiamato
-``foobar/experiment``. E sembra anche si tratti di un ``branch`` un po'
+``foobar/experiment`` e sembra, anche, si tratti di un ``branch`` un po'
 particolare, perché l'interfaccia grafica si preoccupa di disegnarlo di
 colore differente.
 
@@ -174,7 +173,7 @@ Prova a cancellare quel ``branch``
 Non può essere cancellato. git dice che quel ``branch`` non esiste. Uhm.
 Decisamente quell'etichetta ha qualcosa di particolare.
 
-Il fatto è che quel ``branch`` non è sul tuo ``repository``: è su
+Il fatto è, che quel ``branch`` non è sul tuo ``repository``: è su
 ``foobar``. git ha aggiunto un ``remote branch`` per permetterti di
 tenere traccia del fatto che, su ``foobar`` il ``branch`` ``experiment``
 punta proprio a quel ``commit``.
@@ -200,7 +199,7 @@ posizione del proprio ``branch``.
 
 
 Prima di provare con un esempio concreto, vorrei richiamare la tua attenzione su un aspetto molto importante 
-a cui dovrai fare l'abitudine: mentre stavi leggendo queste righe
+a cui dovrai abituarti: mentre stavi leggendo queste righe
 un tuo collega potrebbe aver aggiunto qualche ``commit`` proprio sul suo
 ramo ``experiment`` sul ``repository`` remoto, e tu non ne sapresti
 niente, perché il tuo ``repository`` non è collegato in tempo reale con
@@ -212,7 +211,7 @@ ramo ``experiment`` su ``foobar``.
 Ricevere aggiornamenti con ``fetch``
 ====================================
 
-Guarda: proviamo proprio a simulare quest'ultimo caso caso. 
+Guarda: proviamo proprio a simulare quest'ultimo caso. 
 Modifica `foobar` come se un tuo collega stesse lavorando su ``experiment``. 
 
 Cioè: aggiungi un ``commit`` sul ramo ``experiment`` di ``foobar``
@@ -236,10 +235,10 @@ Torna pure al tuo ``repository`` locale e vediamo cos'è cambiato
 
 .. figure:: img/push-1.png
 
-Infatti. Non è cambiato niente di niente. Il tuo ``repository`` locale
+Infatti. Non è cambiato niente. Il tuo ``repository`` locale
 continua a dirti che il ramo ``experiment`` su ``foobar`` si trova a
-"*un commit con un esperimento*\ ". E tu sai benissimo che non è vero!
-``foobar`` è andato avanti, e il tuo ``repository`` non lo sa.
+"*un commit con un esperimento*\ " e tu sai benissimo che non è vero!
+``foobar`` è andato avanti ma il tuo ``repository`` non lo sa.
 
 Tutto questo è coerente con quel che ti ho detto prima: il tuo
 ``repository`` non è collegato in tempo reale con i suo ``remote``; ci
@@ -260,9 +259,9 @@ i rami. Di solito, si sceglie la seconda strada
 
 Qualcosa è arrivato.
 
-Guarda di nuovo il ``repository`` locale. (Per renderci la vita più
-semplice, iniziamo a sfruttare un'opzione ci cui la quasi totalità delle
-interfacce grafiche di git è provvista: la possibilità di visualizzare
+Guarda di nuovo il ``repository`` locale. (Per semplificarci la vita, iniziamo a utilizzare
+ un'opzione presente nella maggior parte delle
+interfacce grafiche di git: la possibilità di visualizzare
 un singolo ramo e nascondere tutti gli altri, così da semplificare il
 risultato finale)
 
@@ -284,9 +283,9 @@ Un'altra osservazione importante: ``fetch`` non è l'equivalente di
 ``svn update``; solo il tuo ``repository`` locale si è sincronizzato con
 quello remoto; il tuo ``file system`` non è cambiato! Questo significa
 che, in generale, l'operazione di ``fetch`` è molto sicura: anche
-dovessi sincronizzarti con un ``repository`` di dubbia qualità, puoi
+se, dovessi sincronizzarti con un ``repository`` di dubbia qualità, puoi
 dormire sonni tranquilli, perché l'operazione non eseguirà mai il
-``merge`` sul tuo codice senza il tuo esplicito intervento.
+``merge`` sul tuo codice senza il tuo, esplicito, intervento.
 
 Se invece tu volessi davvero includere i cambiamenti introdotti
 remotamente nel *tuo* lavoro, potresti usare il comando ``merge``.
@@ -297,7 +296,7 @@ remotamente nel *tuo* lavoro, potresti usare il comando ``merge``.
 
 .. figure:: img/push-4.png
 
-Riconosci il tipo di ``merge`` che ne è risultato? Sì, un
+Riconosci il tipo di ``merge`` che ne è risultato? Sì, è proprio quello, un
 ``fast-forward``. Interpretalo così: il tuo ``merge`` è stato un
 ``fast-forward`` perché mentre il tuo collega lavorava il ramo non è
 stato modificato da nessun altro; il tuo collega è stato il solo ad
@@ -321,7 +320,7 @@ avresti potuto lanciare
     git pull foobar experiment
 
 Possiamo estendere il diagramma delle interazioni tra i comandi di git e
-i suoi ambienti aggiungendo la colonna ``remote`` e l'azione di
+i suoi ambienti, aggiungendo la colonna ``remote`` e l'azione di
 ``push``, ``fetch`` e ``pull``
 
 .. figure:: img/push-fetch.png
@@ -329,10 +328,10 @@ i suoi ambienti aggiungendo la colonna ``remote`` e l'azione di
 Sviuppo non lineare
 ===================
 
-Proviamo a complicare la situazione. Vorrei mostrarti un caso che ti
-capiterà continuamente: quello in cui due sviluppatori stiano lavorando
+Proviamo a complicare la situazione. Vorrei mostrarti un caso che
+capita continuamente: due sviluppatori lavorano
 contemporaneamente su un ramo, su due ``repository`` separati. Di solito
-accade che, proprio nel momento in cui vorrai spedire al ``remote`` i
+accade che, proprio nel momento in cui vorresti spedire al ``remote`` i
 tuoi nuovi ``commit``, vieni a scoprire che, nel frattempo, qualcuno sul
 ``repository`` remoto ha modificato il ``branch``.
 
@@ -355,8 +354,8 @@ Torna al tuo ``repository``
 
 .. figure:: img/push-4.png
 
-Come prima: fintanto che non chiedi esplicitamente un allineamento con
-``fetch`` il tuo ``repository`` non sa nulla del nuovo ``commit``.
+Come prima: fino a quando non chiedi esplicitamente un allineamento con
+``fetch`` il tuo ``repository`` non saprà nulla del nuovo ``commit``.
 
 Questa, per inciso, è una delle caratteristiche notevoli di git: essere
 compatibile con la natura fortemente non lineare delle attività di
@@ -397,7 +396,7 @@ concorrentemente sullo stesso file, con modifiche potenzialmente
 incompatibili: quando si metteranno insieme i due risultati, c'è da
 aspettarsi che venga segnalato un conflitto.
 
-E infatti è proprio così. Il conflitto nasce nel momento in cui si
+Infatti è proprio così. Il conflitto nasce nel momento in cui si
 cercherà di sincronizzare i due ``repository``. Per esempio: prova a
 spedire il tuo ramo su ``foobar``
 
@@ -413,8 +412,8 @@ spedire il tuo ramo su ``foobar``
     hint: (e.g., 'git pull ...') before pushing again. 
     hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
-Rejected. Failed. Error. Più che evidente che l'operazione non sia
-andata a buon fine. Ed era prevedibile. Con
+Rejected. Failed. Error. E' più che evidente che l'operazione non sia
+andata a buon fine. Era prevedibile. Con
 ``git push foobar experiment`` avevi chiesto a ``foobar`` di portare a
 termine due operazioni:
 
@@ -426,7 +425,7 @@ termine due operazioni:
 Ora: per la prima operazione non ci sarebbe stato alcun problema. Ma per
 la seconda operazione git pone un vincolo aggiuntivo: il ``repository``
 remoto sposterà la propria etichetta solo a patto che l'operazione si
-possa concludere con un ``fast-forward``, cioè, solo a patto che non ci
+possa concludere con un ``fast-forward``, cioè, a condizione che non ci
 siano da effettuare dei ``merge``. Oppure, detta con altre parole: un
 ``remote`` accetta ``branch`` solo se l'operazione non creerà linee di
 sviluppo divergenti.
@@ -448,14 +447,14 @@ a fare ``fetch``. Proviamo
 
 .. figure:: img/collaborating-3.png
 
-La situazione dovrebbe essere chiara già a colpo d'occhio. Si vede che
+La situazione dovrebbe esserti chiara. Si vede che
 le due linee di sviluppo stanno divergendo. La posizione dei due rami
-aiuta a capire dove ti trovi in locale e dove si trovi il tuo collega
+aiuta a capire dove ti trovi in locale e dove si trova il tuo collega
 sul ``remote`` ``foobar``.
 
 Resta solo da decidere cosa fare. A differenza di SVN, che di fronte a
 questa situazione avrebbe richiesto necessariamente un merge in locale,
-git ti lascia 3 possibilità
+git ti lascia 3 possibilità:
 
 -  **andare avanti ignorando il collega**: puoi ignorare il lavoro del
    tuo collega e proseguire lungo la tua linea di sviluppo; certo, non
@@ -469,13 +468,13 @@ git ti lascia 3 possibilità
 -  **``rebase``**\ puoi riallinearti al lavoro del tuo collega con un
    ``rebase``
 
-Prova la terza di queste possibilità. Anzi, per insistere sulla natura
+Prova la terza opzione. Anzi, per insistere sulla natura
 non lineare di git, prova a far precedere alla terza strada la prima. In
 altre parole, prova a vedere cosa succede se, temporaneamente, ignori il
 disallineamento col lavoro del tuo collega e continui a sviluppare sulla
-tua linea. È un caso molto comune: sai di dover riallinearti, prima o
-poi, col lavoro degli altri, ma vuoi prima completare il tuo lavoro. git
-non ti detta i tempi e non ti obbliga ad anticipare le cose che non vuoi
+tua linea. È un caso molto comune: sai di dover riallineare, prima o
+poi, il tuo lavoro con quello degli altri, ma preferisci, prima, completarlo. Git
+non detta i tempi e non ti obbliga ad anticipare ciò che non vuoi
 fare subito
 
 .. code-block:: bash
@@ -486,7 +485,7 @@ fare subito
 .. figure:: img/collaborating-4.png
 
 Benissimo. Sei andato avanti col tuo lavoro, disallineandoti ancora di
-più col lavoro del tuo collega. Supponiamo tu decida sia arrivato il
+più col lavoro del tuo collega. Supponiamo che, secondo te, sia il
 momento di allinearsi, per poi spedire il tuo lavoro a ``foobar``.
 
 Potresti fare un ``git merge foobar/experiment`` ed ottenere questa
@@ -504,7 +503,7 @@ Ma invece di fare un ``merge``, fai qualcosa di più raffinato: usa
 .. figure:: img/collaborating-3.png
 
 Rispetto ai lavori su ``foobar`` è come se tu avessi staccato un ramo di
-sviluppo ma, disgraziatamente, mentre tu facevi le tue modifiche,
+sviluppo ma, disgraziatamente, mentre facevi le tue modifiche,
 ``foobar`` non ti ha aspettato ed è stato modificato.
 
 Bene: se ricordi, ``rebase`` ti permette di applicare tutte le tue
@@ -521,7 +520,7 @@ Prova
 
 .. figure:: img/collaborating-6.png
 
-Visto? A tutti gli effetti appare come se tu avessi iniziato il tuo
+Visto? A tutti gli effetti appare come se avessi iniziato il tuo
 lavoro *dopo* la fine dei lavori su ``foobar``. In altre parole:
 ``rebase`` ha apparentemente reso lineare il processo di sviluppo, che
 era intrinsecamente non lineare, senza costringerti ad allinearti con il
@@ -557,7 +556,7 @@ apportato le tue modifiche a partire dall'ultimo ``commit`` eseguito su
     error: failed to push some refs to '../repo-remoto'
 
 Mamma mia! Sembra proprio che a git questo ``push`` non sia piaciuto.
-Nel lunghissimo messaggio di errore git ti sta dicendo di non poter fare
+Nel lunghissimo messaggio di errore, ti sta dicendo di non poter fare
 ``push`` di un ``branch`` attualmente "*checked out*\ ": il problema non
 sembra essere nel ``push`` in sé, ma nel fatto che sull'altro
 ``repository`` il tuo collega abbia fatto ``checkout experiment``.
@@ -608,7 +607,7 @@ a
 
 .. figure:: img/collaborating-8.png
 
-Ti torna tutto? Ecco, guarda attentamente le ultime due immagini, perché
+È tutto chiaro? Ecco, guarda attentamente le ultime due immagini, perché
 è proprio per evitare quello che vedi che git si è lamentato tanto,
 quando hai fatto ``git push foobar experiment``.
 
@@ -626,8 +625,8 @@ avanti
 
 .. figure:: img/collaborating-8.png
 
-Ammetterai che se questo fosse il comportamento standard di git non
-vorresti mai trovarti nella posizione del tuo collega virtuale: la
+Ammetterai che, se questo fosse il comportamento standard di git non
+vorresti mai trovarti nella posizione del tuo collega virtuale, la
 perdita di controllo del proprio ``repository`` e del proprio
 ``file system`` sarebbe davvero un prezzo troppo alto da pagare.
 
@@ -644,12 +643,12 @@ un ramo ``parcheggio``, unicamente per poter spedirgli il tuo ramo.
 
 Questo sporco trucco ti ha permesso di fare ``push`` di ``experiment``.
 
-Ma a pensarci bene anche questa è una soluzione che, probabilmente, tu
+Ma a pensarci bene; anche questa è una soluzione che, probabilmente, tu
 personalmente non accetteresti mai: a parte la scomodità di doversi
 interrompere solo perché un collega vuole spedirti del suo codice,
 comunque non vorresti che l'avanzamento dei tuoi rami fosse
 completamente fuori dal tuo controllo, alla mercé di chiunque. Perché,
-alla fine, il remo ``experiment`` si sposterebbe in avanti contro la tua
+alla fine, il ramo ``experiment`` si sposterebbe in avanti contro la tua
 volontà, e lo stesso potrebbe accadere a tutti gli altri rami di cui non
 hai fatto ``checkout``.
 
@@ -659,11 +658,11 @@ La soluzione è sorprentemente semplice: **non permettere ad altri di
 accedere al tuo ``repository``**.
 
 Potresti trovarla una soluzione un po' sommaria, ma devi riconoscere che
-non esista sistema più drastico ed efficace. E, fortunatamente, è molto
+non esiste sistema più drastico ed efficace. Fortunatamente, è molto
 meno limitante di quanto tu possa credere ad una prima analisi.
 
 Naturalmente, ti ho raccontato solo metà della storia e forse vale la
-pena di approfondire un po' l'argomento. Apri bene la mente, perché
+pena approfondire un po' l'argomento. Apri bene la mente, perché
 adesso entrerai nel vivo di un argomento molto affascinante: la natura
 distribuita di git. Si tratta, verosimilmente, dell'aspetto più
 comunemente incompreso di git e, quasi certamente di una delle sue

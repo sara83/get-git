@@ -24,7 +24,7 @@ Cioè, si creerebbe questa situazione
     A---B
      \
       C     
-Proviamo davvero:
+Prova davvero:
 
 .. code-block:: bash
 
@@ -33,7 +33,7 @@ Proviamo davvero:
 
 .. figure:: img/repo1.png
 
-Abbiamo così ottenuto una diramazione, senza ricorrere al meccanismo di copia dei
+Hai così ottenuto una diramazione, senza ricorrere al meccanismo di copia dei
 file utilizzato da SVN al momento della creazione di un branch: il
 modello a chiave/valore e puntatori di git rende molto economico
 rappresentare una linea di sviluppo che diverge.

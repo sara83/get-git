@@ -79,7 +79,7 @@ Dovrebbe iniziare a risultarti chiaro perché molti dicano che "*i branch
 su git sono molto economici*\ ": per forza! Sono delle semplicissime
 variabili!
 
-Creiamo un nuovo ``branch``, lo useremo nelle prossime pagine
+Crea un nuovo ``branch``, lo useremo nelle prossime pagine
 
 .. code-block:: bash
 
@@ -132,7 +132,7 @@ Il fatto è che quando esegui il ``checkout`` di un ``branch``, in
 qualche modo ti *agganci* al ``branch``; l'etichetta del ``branch``, in
 altre parole, inizierà a seguirti, ``commit`` dopo ``commit``.
 
-Guarda: adesso sei su ``dev``. Apportiamo una modifica qualsiasi e committiamo
+Guarda: adesso sei su ``dev``. Apporta una modifica qualsiasi e committa
 
 .. code-block:: bash
 

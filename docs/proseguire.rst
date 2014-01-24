@@ -6,10 +6,10 @@ Risorse per approfondire
 
 Questa guida ha toccato solo una minima parte degli strumenti messi a disposizione da git.
 
-git è un sistema composto da più di 150  comandi, ognuno dei quali richiederebbe
+Git è un sistema composto da più di 150  comandi, ognuno dei quali richiederebbe
 un capitolo a sé.
 
-Per avere un elenco completo dei comandi disponibili esegui ``git help -a``
+Per avere un elenco completo dei comandi disponibili, esegui ``git help -a``
 
 
 .. code-block:: bash
@@ -60,7 +60,7 @@ Per avere un elenco completo dei comandi disponibili esegui ``git help -a``
     to read about a specific subcommand or concept.
 
 
-Probabilmente, il miglior modo per conoscere i dettagli di ognuno dei comandi 
+Probabilmente, il miglior modo per conoscere i dettagli di ogni comando 
 è leggere la rispettiva *man page*. 
 
 Per accedere alla *man page* di ``merge`` ti basta invocare
@@ -80,7 +80,7 @@ bisogno di dettagli su un comando specifico.
 Learn git branching
 ###################
 
-Piuttosto che buttarti di nuovo in letture chilometriche, io ti suggerisco di passare alla pratica.
+Piuttosto che buttarti di nuovo in letture chilometriche, ti suggerisco di passare alla pratica.
 
 Un sistema molto divertente per prendere dimestichezza con git è il meraviglioso `Learn git branching <http://pcottle.github.io/learnGitBranching/?demo>`_,
 una guida interattiva molto pratica e molto sfidante, composta da una serie di esercizi

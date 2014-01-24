@@ -32,8 +32,8 @@ strumenti che utilizzerai più spesso è ``merge``
 
 Ci sono solo 3 particolarità sulle quali credo valga la pena
 soffermarsi. La prima è che il ``merge`` di git funziona spaventosamente
-bene. Merito del modello di storage di git: durante i merge git non deve cercare, come SVN, di capire 
-se un delta sia già stato
+bene. Merito del modello di storage di git: durante i merge git non deve impazzire, come SVN, di capire 
+per capire se un delta sia già stato
 applicato o no, perché parte dal confronto di fotografie del progetto.
 Ma non entriamo nel dettaglio: goditi la potenza di ``git merge`` e
 dimentica tutte le difficoltà che hai sempre incontrato con SVN.
@@ -50,7 +50,7 @@ L'ultima fotografia del tuo ``repository`` è questa
 
 .. figure:: img/rebase-6.png
 
-Stacchiamo un ramo da ``dev`` e aggiungiamo un paio di ``commit``
+Staccha un ramo da ``dev`` e aggiungi un paio di ``commit``
 
 .. code-block:: bash
 
@@ -91,7 +91,7 @@ fare
 
 .. figure:: img/merge-2.png
 
-Con ``git merge bugfix`` si chiea git: "*procurami un ``commit``
+Con ``git merge bugfix`` hai chiesto a git: "*procurami un ``commit``
 che contenga tutto quello che c'è nel mio ``branch`` corrente e
 aggiungici tutte le modifiche introdotte dal ramo ``bugfix``*\ ".
 
@@ -108,7 +108,7 @@ Il ``fast-forward merge``
 -------------------------
 
 Se questo ragionamento ti è chiaro, non avrai difficoltà a capire il
-``fast-forward``. Mettiti alla prova; prova a rispondere a questa
+``fast-forward``. Mettiti alla prova; rispondi a questa
 domanda:
 
 Partendo dall'ultimo stato del tuo ``repository``
@@ -118,7 +118,7 @@ Partendo dall'ultimo stato del tuo ``repository``
 cosa accadrebbe se ti spostassi sul ramo ``dev`` e chiedessi un
 ``merge`` col ramo ``sviluppo``, cioè se facessi ``git merge sviluppo``?
 
-Per risponderti, ripeti il ragionamento che abbiamo fatto in occasione
+Per rispondere, ripeti il ragionamento che abbiamo fatto in occasione
 del precedente ``merge``: stai chiedendo a git "*procurami un ``commit``
 che contenga sia il mio ramo corrente ``dev`` che il ramo
 ``sviluppo``*\ ". git consulterebbe i ``commit`` nel suo database per
@@ -128,7 +128,7 @@ presente.
 E lo troverebbe! Guarda il ``commit`` puntato proprio dal ramo
 ``sviluppo``: senza dubbio contiene ``sviluppo`` (per definizione!); e,
 siccome percorrendo la storia verso il basso da ``sviluppo`` è possibile
-raggiungere ``dev``, non c'è nemmeno dubbio che ``sviluppo`` contenga
+raggiungere ``dev``, non c'è nessun dubbio che ``sviluppo`` contenga
 già le modifiche introdotte da ``dev``. Quindi, quello è il ``commit``
 che contiene il ``merge`` tra ``dev`` e ``sviluppo``. Ti torna?
 
@@ -144,16 +144,16 @@ Prova:
 
 .. figure:: img/fast-forward.png
 
-Prova a confrontare la storia prima e dopo il merge
+Ora confronta la storia prima e dopo il merge
 
 .. figure:: img/fast-forward-2.png
 
-Vedi cosa è accaduto? Che l'etichetta ``dev`` è stata *spinta in
+Vedi cosa è accaduto? L'etichetta ``dev`` è stata *spinta in
 avanti*.
 
-Ecco: hai appenao visto un caso di ``fast-forward``. Tieni a mente
-questo comportamento: di tanto in tanto capita di averne a che fare,
-soprattutto quando vuoi evitare che avvenga. Per esempio, in questa
+Ecco: hai appenao visto un caso di ``fast-forward``. Ricorda
+questo comportamento: ti capiterà di averne a che fare,
+soprattutto quando vuoi evitare che avvenga. Ad esempio, in questa
 occasione il ``fast-forward`` non è molto espressivo: si è creata una
 storia nella quale risulta un po' difficile capire *quando* il ramo
 ``dev`` sia stato staccato. Non si vede nemmeno bene quando il ``merge``
@@ -179,17 +179,17 @@ In questo ``repository``, un merge di ``bugfix`` su ``dev`` avverrà in
 .. figure:: img/fast-forward.png
 
 In quest'altro caso, un merge di ``sviluppo`` su ``bugfix`` non potrà
-essere in ``fast-forward``, e risulterà in un nuovo ``commit``
+essere in ``fast-forward`` e risulterà in un nuovo ``commit``
 
 .. figure:: img/merge-1.png
 
 ``octopus merge``
 -----------------
 
-E per chiudere l'argomento vediamo l'\ ``octopus merge``. Ma ci vorranno
+Per concludere l'argomento vediamo l'\ ``octopus merge``. Ci vorranno
 pochi secondi, perché è una cosa di una semplicità sconcertante.
 
-Guarda un ``commit`` nato da un ``merge``: non è diverso dagli altri
+Guarda un ``commit`` nato da un ``merge``; non è diverso dagli altri
 ``commit`` se non per il fatto di avere due genitori invece di uno solo.
 
 .. figure:: img/fast-forward.png
@@ -234,7 +234,7 @@ colpo solo
 
 Et voilà! Un ``merge`` di 4 ``branch``.
 
-E ora qualcosa di completamente diverso. Vediamo un po' come si comporta
+Ora qualcosa di completamente diverso. Vediamo un po' come si comporta
 git con i server remoti.
 
 :ref:`Indice <indice>` :: :ref:`Obiettivo 6: mettere il repository in rete <obiettivo_6>`

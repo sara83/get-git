@@ -24,7 +24,8 @@ Se la stessa situazione fosse su SVN diresti che il commit ``dev``
 immediatamente precedente*\ ".
 
 Per git, calcolare le modifiche apportate ai file da un ``commit``
-all'altro non è poi così difficile. Per esempio, si possono ricavare eseguendo il comando
+all'altro non è poi così difficile. Per esempio, 
+si possono ricavare con
 
 .. code-block:: bash
 
@@ -37,12 +38,12 @@ identico a quello fotografato in ``to``*\ "?
 Con un po' di immaginazione puoi pensare che le linee tra i ``commit``
 rappresentino le modifiche apportate ai file e alle directory
 per ottenere un ``commit``. Per esempio, qui in rosso ho evidenziato la
-linea che rappresenta ciò che abbiamo fatto quando partiti da ``B`` abbiamo
+linea che rappresenta ciò che hai fatto quando partito da ``B`` hai
  creato il commit puntato da ``dev``.
 
 .. figure:: img/angular-highlighted.png
 
-Se rammenti, avevamo fatto
+Se rammenti, avevi fatto
 
 .. code-block:: bash
 
@@ -50,7 +51,7 @@ Se rammenti, avevamo fatto
     git add style.css
     git commit -m "Adesso ho anche il css"
 
-Quindi, potremmo dire che la linea rossa rappresenta l'aggiunta del
+Quindi, potresti dire che la linea rossa rappresenti l'aggiunta del
 file ``style.css``.
 
 Bene. Tieni a mente questo modello. Adesso ti mostrerò uno dei comandi
@@ -62,8 +63,8 @@ Il coltellino svizzero: ``cherry-pick``
 ``cherry-pick`` applica i cambiamenti introdotti da un ``commit`` in un
 altro punto del ``repository``.
 
-Vediamo subito un esempio. Partiamo da ``dev`` creiamo un ``branch``
-chiamato ``experiment`` ed aggiungiamo un ``commit``
+Vediamo subito un esempio. Parti da ``dev``, crea un ``branch``
+chiamato ``experiment`` ed aggiungi un ``commit``
 
 .. code-block:: bash
 
@@ -77,7 +78,7 @@ chiamato ``experiment`` ed aggiungiamo un ``commit``
 .. figure:: img/cherry-pick-1.png
 
 Bene: adesso prendendo in considerazione la modifica appena
-apportata a partire dall'ultimo ``commit`` di ``dev``\ supponiamo che ci
+apportata a partire dall'ultimo ``commit`` di ``dev``\ supponi che ci
 interessi applicare la stessa modifica anche al ramo ``master``. Con il
 comando ``cherry-pick`` è possibile chiedere a git di calcolare le modifiche
 introdotte dal tuo ``commit`` e riapplicarle da qualche altra parte, per
@@ -99,7 +100,7 @@ Voglio darti qualche spunto.
 Correggere un bug a metà di un ramo
 -----------------------------------
 
-A partire da ``master`` creiamo un ramo ``feature`` e aggiungici 3
+A partire da ``master`` crea un ramo ``feature`` e aggiungici 3
 ``commit``
 
 .. code-block:: bash
@@ -123,7 +124,7 @@ raccapriccio*\ " è stato un errore madornale! Ah, se solo si potesse
 riscrivere la storia e rimuoverlo!
 
 Si può fare! L'idea è questa: riportare ``feature`` indietro nel tempo, fino a
-``master``, e usare ``cherry-pick`` per riapplicarvi una ad una le
+``master`` e usare ``cherry-pick`` per riapplicarvi una ad una le
 modifiche, avendo cura però di non applicare quelle introdotte da
 "*orrore e raccapriccio*\ ". Hai solo bisogno di conoscere i valori
 delle chiavi dei 3 ``commit``
@@ -145,7 +146,7 @@ di ``commit``: ne parleremo più avanti)
     git checkout master
 
 spostaci sopra ``feature``, in modo che torni nella posizione in cui si
-trovava quando lo hai creato, prima di applicare i commit
+trovava quando lo hai creato, prima di fare i commit
 
 .. code-block:: bash
 
@@ -153,9 +154,10 @@ trovava quando lo hai creato, prima di applicare i commit
     git checkout feature
 
 .. figure:: img/bug-2.png
-Perfetto. Con questa azione però, non abbiamo ricreato esattamente il ``repository`` precedente,
+Perfetto. Con questa azione però, non hai ricreato esattamente il ``repository`` precedente,
 perché i 3 nuovi ``commit`` sono ancora presenti, ma i ``branch`` sono
-stati riposizionati dov'erano prima. Non ci resta che prendere
+stati riposizionati dov'erano prima. Non ti resta che prendere, con
+``cherry-pick``, i soli ``commit`` che ti interessano. Prendi il primo,
 quello col commento ``feature``
 
 .. code-block:: bash
